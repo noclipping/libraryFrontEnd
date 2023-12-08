@@ -11,7 +11,7 @@ const AddBookForm = ({ fetchBooks }) => {
       setErrorMessage("error length too low for title");
       return;
     }
-    await fetch("http://localhost:3000/books", {
+    await fetch("https://d2khx3lr92llqj.cloudfront.net/authors", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

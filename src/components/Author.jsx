@@ -6,31 +6,25 @@ const Author = ({ author, fetchAuthors }) => {
   const [nationality, setNationality] = useState(author.nationality);
   const [editing, setEditing] = useState(false);
   const handleDelete = async () => {
-    await fetch(
-      `http://ec2-3-110-87-83.ap-south-1.compute.amazonaws.com:3000/authors/${author.id}`,
-      {
-        method: "DELETE",
-      }
-    ).then((res, err) => {
+    await fetch(`https://d2khx3lr92llqj.cloudfront.net/authors/${author.id}`, {
+      method: "DELETE",
+    }).then((res, err) => {
       console.log(res, err);
     });
     fetchAuthors();
   };
   const handleUpdate = async () => {
-    await fetch(
-      `http://ec2-3-110-87-83.ap-south-1.compute.amazonaws.com:3000/authors/${author.id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          dob,
-          nationality,
-        }),
-      }
-    )
+    await fetch(`https://d2khx3lr92llqj.cloudfront.net/authors/${author.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        dob,
+        nationality,
+      }),
+    })
       .then((res) => res.json())
       .then((res) => {
         setEditing(!editing);

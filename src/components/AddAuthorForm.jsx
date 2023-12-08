@@ -9,20 +9,17 @@ const addAuthorForm = ({ fetchAuthors }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await fetch(
-      "http://ec2-3-110-87-83.ap-south-1.compute.amazonaws.com:3000/authors",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          dob,
-          nationality,
-        }),
-      }
-    )
+    await fetch("https://d2khx3lr92llqj.cloudfront.net/authors", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        dob,
+        nationality,
+      }),
+    })
       .then((res) => res.json())
       .then((res) => {
         if (res.Error) {

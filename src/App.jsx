@@ -14,16 +14,14 @@ function App() {
   }, []);
 
   const fetchBooks = async () => {
-    const response = await fetch(
-      "http://ec2-3-110-87-83.ap-south-1.compute.amazonaws.com:3000/books"
-    );
+    const response = await fetch("https://d2khx3lr92llqj.cloudfront.net/books");
     const data = await response.json();
     console.log(data, "response");
     setBooks(data);
   };
   const fetchAuthors = async () => {
     const response = await fetch(
-      "http://ec2-3-110-87-83.ap-south-1.compute.amazonaws.com:3000/authors"
+      "https://d2khx3lr92llqj.cloudfront.net/authors"
     );
     const data = await response.json();
     console.log(data, "response");
